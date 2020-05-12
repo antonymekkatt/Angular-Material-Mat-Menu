@@ -1,0 +1,88 @@
+<div class="dashboard_sec_new dashboard_sec_new_1">
+  <div class="maincontainer">
+    <div class="dashedbox">
+      <mat-card-title class="dashedbox_title">User Group</mat-card-title>
+      <form [formGroup]="userGroupForm" (ngSubmit)="reportUserGroupSearch(userGroupForm)">
+        <div fxLayout="row">
+          <div class="margintop_15px" fxFlex="40">
+            <mat-form-field class="example-full-width" fxFlex="90">
+              <input matInput placeholder="User Group Name" formControlName="usergroup" />
+              <mat-hint class="hint_align_right">Not more than 80 characters long</mat-hint>
+              <mat-error *ngIf="hasError('usergroup', 'maxlength')">Your user group name cannot exceed 80 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('usergroup', 'pattern')">Not a valid format (special characters like ! "
+                # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+            </mat-form-field>
+            <div class="usergroup_srchbtn">
+              <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="bluebutton bluebutton_btm" type="submit">Search</button>
+            </div>
+          </div>
+          <div fxFlex="60">
+            <div class="usergroup_addnewbtn margintop_30px">
+              <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="bluebutton bluebutton_btm" (click)="addReportUserGroup()">Add User Group</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div fxLayout="row" class="margintop_15px">
+        <div fxFlex="100">
+          <div class="mat-elevation-z8">
+            <div class="table_topmenu_new_sec">
+              <div class="table_topmenu_right">
+                <button mat-button [matMenuTriggerFor]="menu" *ngIf="displayTableMenu">
+                  <mat-icon mat-list-icon>menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" class="tablemenu_dropdown">
+                  <div *ngFor="let module of tableHeaderDetails;let i = index">
+                    <button mat-menu-item (click)="myListBoxOnCheckChange(module.datafield)">
+                      <div>
+                        <mat-checkbox color="primary" id="{{module.text}}" [checked]='module.checked'
+                          value="{{module.checked}}" (click)="myListBoxItemOnCheckChange(module.datafield)">
+                        </mat-checkbox><span>{{module.text}}</span>
+                      </div>
+                    </button>
+                  </div>
+                </mat-menu>
+              </div>
+              <div class="table_btmlist_sec table_btmlist_sec_new">
+                <table mat-table #table [dataSource]="dataSourceUserGroupList" matSort>
+                  <ng-container [matColumnDef]="col.datafield" *ngFor="let col of tableHeaderDetails">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ col.text }} </th>
+                    <td mat-cell *matCellDef="let element" class="overflow_hidden_dotted_"
+                      title="{{element[col.datafield] }}"></td>
+                  </ng-container>
+                  <ng-container matColumnDef="edit">
+                    <th class="action-head grid_action_column_size_" *matHeaderCellDef mat-header style="width: 120px">
+                      Action
+                    </th>
+                    <td class="tableaction_icons" *matCellDef="let element" mat-cell>
+                      <mat-icon class="material-icons table_delete_"><a title="Delete"
+                          (click)="deleteReportUserGroup(element.reportUserGroupId,element.userGroupName)">delete</a>
+                      </mat-icon>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumnsUserGroupLists"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumnsUserGroupLists;"></tr>
+                </table>
+                <div *ngIf="displayTableNoDataContent" class="table_no_data">
+                  No records found
+                </div>
+                <mat-card
+                  [ngClass]="displayTableLoadingContent && tableDataCount>2 ? 'tabledata_load_': 'tabledata_load_new'"
+                  *ngIf="displayTableLoadingContent"
+                  style="display: flex; justify-content: center; align-items: center">
+                  <img src="{{TABLE_LOADER_IMAGE_PATH}}">
+                </mat-card>
+                <mat-paginator [pageIndex]="pageIndex" [length]="totalDataLength" [pageSize]="pageSize"
+                  showFirstLastButtons (page)="changePage($event)"></mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

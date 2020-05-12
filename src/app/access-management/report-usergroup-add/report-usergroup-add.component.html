@@ -1,0 +1,62 @@
+<div class="dashboard_sec_new dashboard_sec_new_1">
+
+  <div class="maincontainer">
+    <div class="dashedbox dashedbox_medium param_search">
+      <form class="example-form" [formGroup]="addUserGroupForm" (ngSubmit)="addReportUserGroupAction(addUserGroupForm)">
+        <mat-card-title class="dashedbox_title">Create User Group</mat-card-title>
+        <div fxLayout="row">
+          <div fxFlex="100" class="margintop_15px">
+            <mat-form-field class="example-full-width" fxFlex="90">
+              <input matInput placeholder="Group Name" formControlName="userGroupName" required>
+              <mat-hint class="hint_align_right">Not more than 80 characters long</mat-hint>
+              <mat-error *ngIf="hasError('userGroupName', 'required')">Group name is required</mat-error>
+              <mat-error *ngIf="hasError('userGroupName', 'maxlength')">Your user group name cannot exceed 80 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('userGroupName', 'pattern')">Not a valid format (special characters like ! " #
+                $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+              <mat-error *ngIf="hasError('userGroupName', 'whitespace')">User group name must be at least 2
+                characters (white space not permitted)
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100">
+            <mat-form-field class="example-full-width margintop_15px" fxFlex="90">
+              <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+              <mat-hint class="hint_align_right">Not more than 160 characters long</mat-hint>
+              <mat-error *ngIf="hasError('description', 'required')">Description is required</mat-error>
+              <mat-error *ngIf="hasError('description', 'maxlength')">Your description cannot exceed 160 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('description', 'whitespace')">Description must be at least 3
+                characters (white space not permitted)
+              </mat-error>
+              <mat-error *ngIf="hasError('description', 'pattern')">Not a valid format (special characters like ! " # $
+                %
+                & ' ( ) * and white space are not allowed)</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="100">
+            <div class="novice_toggle" fxFlex="60">
+              <mat-slide-toggle style="margin: 15px;" formControlName="active"></mat-slide-toggle> Active
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" class="margintop_15px">
+          <div fxFlex="100">
+            <div class="userdetails_add_button">
+              <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="bluebutton bluebutton_btm" type="submit">Save</button>
+              <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="mat-raised-button mat-warn button-gap" type="button"
+                (click)="cancelReportUserGroupAdd()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

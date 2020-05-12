@@ -1,0 +1,67 @@
+<div>
+  <div class="common_header_new">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row fxFlex="100">
+        <div class="logo_">
+          <div class="mainlogo" fxFlex="80">
+            <span><img src={{ERS_LOGO_PATH}}></span>
+          </div>
+          <!-- <div fxFlex="20">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()" color="warm">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+          </div> -->
+        </div>
+        <div class="title-font headtext_new"><span class="header_maintext_new" fxFlex="70">
+            <div class="user_area">
+              <div [matMenuTriggerFor]="menu" class="user__icon_">
+                <mat-icon class="material-icons">account_circle</mat-icon>
+              </div>
+              <div [matMenuTriggerFor]="menu" class="user__Name_">
+                Welcome {{userLoginDetails.firstName}} {{userLoginDetails.middleName}}
+                {{userLoginDetails.lastName}}
+              </div>
+              <mat-menu class="userdropdown_new" #menu="matMenu" xPosition="after" [overlapTrigger]="false">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)="signOut()">Log Out</button>
+              </mat-menu>
+            </div>
+            <div class="timer">
+              <mat-icon class="material-icons" class="user__icon_">schedule</mat-icon>
+              <span class="date_time_">{{datetime}}</span>
+            </div>
+          </span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  <div class="dashboard_area_new">
+
+    <mat-sidenav-container class="example-sidenav-container" autosize>
+      <mat-sidenav #sidenav class="example-sidenav sidemenu_active" mode="side" opened="true" id="sidenav">
+        <mat-nav-list>
+          <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content class="dashboard_contentsec_new">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <div class="btmfooter">
+      <mat-card-footer>
+        <div fxLayout="row">
+          <div fxFlex="39" class="footer_left">
+            <label>Version {{footerDetails.version}} P-Square Solutions. All Rights Reserved.</label>
+          </div>
+          <div fxFlex="30" class="footer_mid">
+            <label>Environment : {{footerDetails.enviornment}} | Instance : {{footerDetails.instance}}</label>
+          </div>
+          <div fxFlex="31" class="footer_right">
+            <a>About Us</a> | <a>Term of Use</a> | <a>Help</a>
+          </div>
+        </div>
+      </mat-card-footer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.title-center {
+  flex: 1 1 auto;
+}
+
+.title-right {
+  flex: 1 1 auto;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.aligned-with-icon {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+  /* optional */
+}
+
+.aligned-with-icon-relative {
+  position: relative;
+  top: -5px;
+  margin-left: 5px;
+  /* optional */
+}
+
+.header-align {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.subModuleActive {
+  background-color: #d2cece;
+  color: white;
+}
+
+.moduleActive {
+  background: #293a4a !important;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+td:before {
+  content: attr(title);
+}
