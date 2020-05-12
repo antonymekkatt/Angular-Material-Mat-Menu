@@ -1,0 +1,13 @@
+<div class="popup_medium_size">
+
+
+  <h1 mat-dialog-title>Question</h1>
+  <div mat-dialog-content>
+    <p>{{data.message}}</p>
+  </div>
+  <div mat-dialog-actions class="mat-dialog-actions-new mat-dialog-btmbtns confim_dig_popup">
+    <button mat-raised-button (click)="onYesClick()" class="bluebutton bluebutton_btm ">YES</button>
+    <button mat-raised-button (click)="onNoClick()" class="mat-warn">NO</button>
+  </div>
+
+</div>
