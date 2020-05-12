@@ -1,0 +1,93 @@
+<div class="dashboard_sec_new dashboard_sec_new_1">
+  <div class="maincontainer">
+    <form [formGroup]="addPowerUserForm" (ngSubmit)="addPowerUserAction(addPowerUserForm)">
+      <div class="dashedbox adduser_area fieldfor_smalltext param_search fulltable_width_new dashedtable_new">
+        <mat-card-title class="dashedbox_title">Add User</mat-card-title>
+        <div fxLayout="row" class="margintop_15px">
+          <div fxFlex="35">
+            <mat-form-field class="" fxFlex="90">
+              <input matInput placeholder="User Name" formControlName="userName" required>
+              <mat-hint class="hint_align_right">Not more than 40 characters long</mat-hint>
+              <mat-error *ngIf="hasError('userName', 'required')">User Name is required</mat-error>
+              <mat-error *ngIf="hasError('userName', 'maxlength')">Your user name cannot exceed 40 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('userName', 'whitespace')">User name must be at least 2 characters long
+              </mat-error>
+              <mat-error *ngIf="hasError('userName', 'pattern')">Not a valid format (special characters like ! " # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="35">
+            <mat-form-field class="margintop_15px" fxFlex="90">
+              <input matInput placeholder="First Name" formControlName="firstName" required>
+              <mat-hint class="hint_align_right">Not more than 50 characters long</mat-hint>
+              <mat-error *ngIf="hasError('firstName', 'required')">First name is required</mat-error>
+              <mat-error *ngIf="hasError('firstName', 'maxlength')">Your first name cannot exceed 50 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('firstName', 'pattern')">Not a valid format (special characters like ! " # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+              <mat-error *ngIf="hasError('firstName', 'whitespace')">First name must be at least 2
+                characters (white space not permitted)</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="30">
+            <mat-form-field class="margintop_15px" fxFlex="90">
+              <input matInput placeholder="Middle Name" formControlName="middleName">
+              <mat-hint class="hint_align_right">Not more than 20 characters long</mat-hint>
+              <mat-error *ngIf="hasError('middleName', 'maxlength')">Your middle name cannot exceed 20 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('middleName', 'pattern')">Not a valid format (special characters like ! " # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="35">
+            <mat-form-field class="margintop_15px" fxFlex="90">
+              <input matInput placeholder="Last Name" formControlName="lastName" required>
+              <mat-hint class="hint_align_right">Not more than 50 characters long</mat-hint>
+              <mat-error *ngIf="hasError('lastName', 'required')">Last name is required</mat-error>
+              <mat-error *ngIf="hasError('lastName', 'maxlength')">Your last name cannot exceed 50 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('lastName', 'pattern')">Not a valid format (special characters like ! " # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+              <mat-error *ngIf="hasError('lastName', 'whitespace')">Last name must be at least 1
+                characters (white space not permitted)</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div fxFlex="55">
+            <mat-form-field class="margintop_15px" fxFlex="90">
+              <textarea matInput placeholder="Comments" formControlName="comments"></textarea>
+              <mat-hint class="hint_align_right">Not more than 160 characters long</mat-hint>
+              <mat-error *ngIf="hasError('comments', 'required')">Comments is required</mat-error>
+              <mat-error *ngIf="hasError('comments', 'maxlength')">Your comments cannot exceed 160 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('comments', 'pattern')">Not a valid format (special characters like ! " # $ %
+                & ' ( ) * and white space are not allowed)</mat-error>
+              <mat-error *ngIf="hasError('comments', 'whitespace')">Comments must be at least 2
+                characters (white space not permitted)</mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="30">
+            <div class="novice_toggle status_toggle_" fxFlex="50 ">
+              <mat-slide-toggle color="warm" formControlName="status"></mat-slide-toggle> Status
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row" class="margintop_15px">
+          <div fxFlex="100">
+            <div class="userdetails_add_button">
+                <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="bluebutton bluebutton_btm" type="submit">Save</button>
+                <button routerLinkActive="router-link-active" mat-raised-button color="accent"
+                class="mat-raised-button mat-warn button-gap" type="button"
+                (click)="cancelPowerUserAdd()">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
