@@ -1,34 +1,25 @@
 import {
   Component,
   OnInit,
-  ViewChildren,
   ChangeDetectorRef,
   ViewChild,
   ElementRef,
 } from "@angular/core";
 import { ErrorsHandlerService } from "src/app/services/error-handler-service";
 import { CommonDataService } from "src/app/services/common-data-services";
-import { Router, NavigationEnd } from "@angular/router";
+import { Router } from "@angular/router";
 import { formatDate, PlatformLocation } from "@angular/common";
 import { DataBindService } from "src/app/services/data-bind-service";
-import { globalVariables } from "src/assets/values/global-variables";
-import { MatExpansionPanel, MatAccordion } from "@angular/material";
 import { NavItem } from "../menu-list-item/menu-list-item.component";
 import { NavService } from "src/app/services/nav-services";
-import { VERSION } from "@angular/material";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
 })
 export class HomeComponent implements OnInit {
-  @ViewChildren("matexpansionpanel") expansionSpans: any = MatExpansionPanel;
-  @ViewChildren("matexpansionpanelsubmodule")
-  expansionSpanSubModules: any = MatExpansionPanel;
-  @ViewChild(MatAccordion) accordion: MatAccordion;
 
   @ViewChild("appDrawer") appDrawer: ElementRef;
-  version = VERSION;
 
   homePageDetails: any;
   userLoginDetails: any = [
@@ -40,11 +31,7 @@ export class HomeComponent implements OnInit {
   datetime: any;
   isExpanded: boolean = true;
   navigationSubscription;
-
-  ERS_LOGO_PATH =
-    "../../../" + globalVariables.IMAGE_LOCATION_PATH + globalVariables.LOGO;
-  ERS_MENU_ICON_PATH = "../../../" + globalVariables.MENU_ICON_LOCATION_PATH;
-
+  
   showSubmenu: boolean = false;
   navItems: NavItem[] = [];
 

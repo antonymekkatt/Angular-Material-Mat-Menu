@@ -1,9 +1,6 @@
 export const globalVariables = Object.freeze({
     BASE_URL: 'http://192.168.1.111:8080/ERS',
-    IMAGE_LOCATION_PATH: 'assets/images/',
-    MENU_ICON_LOCATION_PATH: 'assets/images/icons/menu_icons/',
-    ICON_LOCATION_PATH: 'assets/images/icons/',
-    LOGO: 'etbos_logo.jpg',
+    IMAGE_LOCATION_PATH: 'ERS/assets/images/',
     PAGE_NOT_FOUND: '404-error.jpg',
     TABLE_LOADER_IMAGE: 'loader.gif',
     REPORT_LOADER_IMAGE: 'loader_1.gif',

@@ -4,42 +4,10 @@ import { NgModule, APP_INITIALIZER, ErrorHandler } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {
-  MatInputModule,
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatMenuModule,
-  MatSelectModule,
-  MatGridListModule,
-  MatIconModule,
-  MatSliderModule,
-  MatCardModule,
-  MatToolbarModule,
-  MatSidenavModule,
-  MatListModule,
-  MatExpansionModule,
-  MatTableModule,
-  MatPaginatorModule,
-  MatTabsModule,
-  MatSnackBarModule,
-  MatTooltipModule,
-  MatBadgeModule,
-  MatBottomSheetModule,
-  MatCheckboxModule,
-  MatSlideToggleModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatRadioModule,
-  MatSortModule,
-  MatDialogModule,
-  MatProgressSpinnerModule,
-} from '@angular/material';
-
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorsHandlerService } from './services/error-handler-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatSidenavMenuModule } from 'mat-sidenav-menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardContainerComponent } from './dashboard/dashboard-container/dashboard-container.component';
@@ -54,6 +22,7 @@ import { MenuListItemComponent } from './dashboard/menu-list-item/menu-list-item
 import { NavService } from './services/nav-services';
 
 import { ConfirmDialogComponent } from './common-dialog/confirm-dialog/confirm-dialog.component';
+import { MaterialModule } from './services/material-module';
 
 
 @NgModule({
@@ -79,35 +48,7 @@ import { ConfirmDialogComponent } from './common-dialog/confirm-dialog/confirm-d
     BrowserModule,
     AppRoutingModule,
 
-    MatInputModule,
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatSelectModule,
-    MatGridListModule,
-    MatIconModule,
-    MatSliderModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatExpansionModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatTabsModule,
-    MatSnackBarModule,
-    MatTooltipModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatSortModule,
-    MatDialogModule,
-    MatProgressSpinnerModule,
-    MatSidenavMenuModule,
+    MaterialModule,
     BrowserAnimationsModule,
 
     FormsModule,

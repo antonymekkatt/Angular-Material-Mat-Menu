@@ -4,12 +4,7 @@ import { CommonDataService } from "src/app/services/common-data-services";
 import { ErrorsHandlerService } from "src/app/services/error-handler-service";
 import { DataBindService } from "src/app/services/data-bind-service";
 import { ToasterService } from "src/app/services/toaster-service";
-import {
-  MatDialog,
-  MatTableDataSource,
-  MatSort,
-  MatPaginator,
-} from "@angular/material";
+
 import {
   FormControl,
   FormBuilder,
@@ -20,6 +15,10 @@ import {
 } from "@angular/forms";
 import { globalVariables } from "src/assets/values/global-variables";
 import { ConfirmDialogComponent } from "src/app/common-dialog/confirm-dialog/confirm-dialog.component";
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: "app-power-user-list",

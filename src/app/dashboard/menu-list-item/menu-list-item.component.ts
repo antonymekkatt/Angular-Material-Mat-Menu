@@ -25,9 +25,6 @@ export class MenuListItemComponent implements OnInit {
   @Input() item: NavItem;
   @Input() depth: number;
 
-  ERS_LOGO_PATH = "../../../" + globalVariables.IMAGE_LOCATION_PATH + globalVariables.LOGO;
-  ERS_MENU_ICON_PATH = "../../../" + globalVariables.MENU_ICON_LOCATION_PATH;
-
   constructor(public navService: NavService,
               public router: Router) {
     if (this.depth === undefined) {

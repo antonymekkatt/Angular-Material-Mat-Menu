@@ -11,7 +11,7 @@ import { CommonDataService } from "src/app/services/common-data-services";
 import { Router } from "@angular/router";
 import { DataBindService } from "src/app/services/data-bind-service";
 import { ToasterService } from "src/app/services/toaster-service";
-import { MatDialog } from "@angular/material";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: "app-report-usergroup-add",
